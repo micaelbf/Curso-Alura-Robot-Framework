@@ -1,5 +1,9 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library         SeleniumLibrary
+Resource        setup_teardown.robot
+Resource        preenchimento_incorreto.robot
+Test Setup      Dado que o usuário acesse o site organo
+Test Teardown   Fechar o navegador
 
 *** Variables ***
 ${URL}                    http://localhost:3000/
@@ -18,15 +22,12 @@ ${OPCAO_INOVACAO}         //option[contains(.,'Inovação e Gestão')]
 
 *** Test Cases ***
 Verificar se os dado são preencidos no formulário e o card é criado no time corretamente.
-    Dado que o usuário acesse o site organo
-    E preencha os campos do formulário
+    Dado que o usuário preencha os campos do formulário
     E clique no botão criar card
     Então o card deve estar visível no time correto
 
 *** Keywords ***
-Dado que o usuário acesse o site organo
-    Open Browser    url=http://localhost:3000   browser=Chrome
-E preencha os campos do formulário
+Dado que o usuário preencha os campos do formulário
     Input Text    id:form-nome      Akemi
     Input Text    id:form-cargo     Desenvolvedora
     Input Text    id:form-imagem    https://picsum.photos/200/300
