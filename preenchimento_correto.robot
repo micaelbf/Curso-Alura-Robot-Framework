@@ -12,13 +12,14 @@ ${CAMPO_CARGO}            id:form-cargo
 ${CAMPO_IMAGEM}           id:form-imagem
 ${CAMPO_TIME}             class:lista-suspensa
 ${BOTAO_CARD}             id:form-botao
-${OPCAO_PROGRAMACAO}      //option[contains(.,'Programação')]
-${OPCAO_FRONT}            //option[contains(.,'Front-End')]
-${OPCAO_DADOS}            //option[contains(.,'Data Science')]
-${OPCAO_DEVOPS}           //option[contains(.,'Devops')] 
-${OPCAO_UX}               //option[contains(.,'UX e Design')]
-${OPCAO_MOBILE}           //option[contains(.,'Mobile')]
-${OPCAO_INOVACAO}         //option[contains(.,'Inovação e Gestão')]
+@{selecionar_times}
+...      //option[contains(.,'Programação')]
+...      //option[contains(.,'Front-End')]
+...      //option[contains(.,'Data Science')]
+...      //option[contains(.,'Devops')] 
+...      //option[contains(.,'UX e Design')]
+...      //option[contains(.,'Mobile')]
+...      //option[contains(.,'Inovação e Gestão')]
 
 *** Test Cases ***
 Verificar se os dado são preencidos no formulário e o card é criado no time corretamente.
@@ -32,16 +33,21 @@ Verificar a criação de mais de um card
     E clique no botão criar card
     Então deve ser criado 3 cards no time esperado
 
+Verificar se é possivel criar cards em times separados se preenchermos os campos corretamente
+    Dado que o usuário preencha os campos do formulário
+    Então criar e identificar um card em cada time disponível
+
+
 *** Keywords ***
 Dado que o usuário preencha os campos do formulário
-    ${Nome}       FakerLibrary.First Name 
-    Input Text    ${CAMPO_NOME}      ${Nome}
-    ${Cargo}      FakerLibrary.Job  
-    Input Text    ${CAMPO_CARGO}     ${Cargo}
-    ${Imagem}     FakerLibrary.Image Url
-    Input Text    ${CAMPO_IMAGEM}    ${Imagem}
-    Click Element    class:lista-suspensa
-    Click Element    //option[contains(.,'Programação')]
+    ${Nome}           FakerLibrary.First Name 
+    Input Text      ${CAMPO_NOME}      ${Nome}
+    ${Cargo}          FakerLibrary.Job  
+    Input Text      ${CAMPO_CARGO}     ${Cargo}
+    ${Imagem}         FakerLibrary.Image Url    width=100     height=100
+    Input Text      ${CAMPO_IMAGEM}    ${Imagem}
+    Click Element   ${CAMPO_TIME} 
+    Click Element   ${selecionar_times}[0]
 
 E clique no botão criar card
     Click Element    id:form-botao
@@ -55,5 +61,14 @@ Então deve ser criado 3 cards no time esperado
         Dado que o usuário preencha os campos do formulário
         E clique no botão criar card                 
     
+    END
+    Sleep    10s
+
+
+Então criar e identificar um card em cada time disponível
+    FOR    ${indice}    ${time}    IN ENUMERATE    @{selecionar_times}
+        Dado que o usuário preencha os campos do formulário
+        Click Element    ${time}
+        E clique no botão criar card
     END
     Sleep    10s
