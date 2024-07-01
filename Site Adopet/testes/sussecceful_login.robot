@@ -8,9 +8,5 @@ Test Teardown    Fechar browser
 
 Verificar se o acesso do usuário já cadastrado é efetuado com sucesso 
     Dado que o usuário clique em já tenho conta
-    E insira usuário e senha corretamente
-    Então ele deve ser redirecionado para a página home
-
-
-    
-
+    E insira usuário e senha corretamente e clique em entrar
+    Então ele deve ser redirecionado para a página pets

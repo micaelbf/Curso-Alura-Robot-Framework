@@ -28,10 +28,11 @@ Entao ele deve ser redirecionado para a página de pets
 
 Dado que o usuário clique em já tenho conta
     Click Element    //a[contains(.,'Já tenho conta')]
-E insira usuário e senha corretamente
+E insira usuário e senha corretamente e clique em entrar
     Input Text        ${CAMPO_EMAIL}    teste10@email.com
     Input Password    ${CAMPO_SENHA}    Senha1234
     Click Element    class:submit-button
-Então ele deve ser redirecionado para a página home
+
+Então ele deve ser redirecionado para a página pets
     Sleep    2s
-    Element Should Be Visible    class:pet-container
+    Location Should Be    https://adopet-challenge.vercel.app/pets
