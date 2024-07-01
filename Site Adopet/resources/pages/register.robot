@@ -25,3 +25,13 @@ E preencha email, nome, senha e confirmar senha corretamente e clicar em cadastr
 Entao ele deve ser redirecionado para a página de pets
     Sleep    2s
     Element Should Be Visible    class:pet-container
+
+Dado que o usuário clique em já tenho conta
+    Click Element    //a[contains(.,'Já tenho conta')]
+E insira usuário e senha corretamente
+    Input Text        ${CAMPO_EMAIL}    teste10@email.com
+    Input Password    ${CAMPO_SENHA}    Senha1234
+    Click Element    class:submit-button
+Então ele deve ser redirecionado para a página home
+    Sleep    2s
+    Element Should Be Visible    class:pet-container

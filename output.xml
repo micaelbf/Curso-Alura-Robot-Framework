@@ -1,105 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-07-01T13:42:36.521740" rpa="false" schemaversion="5">
-<suite id="s1" name="Sussecceful Register" source="c:\Users\Micael\OneDrive\Área de Trabalho\Carreia Teste\Curso-Alura-Robot Framework\Site Adopet\testes\sussecceful_register.robot">
-<test id="s1-t1" name="Verificar se o cadastro de um novo usuário e realizado com sucesso" line="9">
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-07-01T15:09:20.411656" rpa="false" schemaversion="5">
+<suite id="s1" name="Sussecceful Login" source="c:\Users\Micael\OneDrive\Área de Trabalho\Carreia Teste\Curso-Alura-Robot Framework\Site Adopet\testes\sussecceful_login.robot">
+<test id="s1-t1" name="Verificar se o acesso do usuário já cadastrado é efetuado com sucesso" line="9">
 <kw name="Acessar a URL" owner="setup_teardown" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-07-01T13:42:37.166325" level="INFO">Opening browser 'Chrome' to base url 'https://adopet-challenge.vercel.app/'.</msg>
+<msg time="2024-07-01T15:09:21.089281" level="INFO">Opening browser 'Chrome' to base url 'https://adopet-challenge.vercel.app/'.</msg>
 <arg>url=https://adopet-challenge.vercel.app/</arg>
 <arg>browser=Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-07-01T13:42:37.166325" elapsed="1.638341"/>
+<status status="PASS" start="2024-07-01T15:09:21.089281" elapsed="1.621888"/>
 </kw>
-<status status="PASS" start="2024-07-01T13:42:37.165322" elapsed="1.639344"/>
+<status status="PASS" start="2024-07-01T15:09:21.088282" elapsed="1.622887"/>
 </kw>
-<kw name="Dado que o usuário clique em Quero me cadastrar" owner="register">
+<kw name="Dado que o usuário clique em já tenho conta" owner="register">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-07-01T13:42:38.807669" level="INFO">Clicking element '//a[contains(.,'Quero me cadastrar')]'.</msg>
-<arg>//a[contains(.,'Quero me cadastrar')]</arg>
+<msg time="2024-07-01T15:09:22.714170" level="INFO">Clicking element '//a[contains(.,'Já tenho conta')]'.</msg>
+<arg>//a[contains(.,'Já tenho conta')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-01T13:42:38.806672" elapsed="0.081008"/>
+<status status="PASS" start="2024-07-01T15:09:22.713171" elapsed="0.079538"/>
 </kw>
-<status status="PASS" start="2024-07-01T13:42:38.805671" elapsed="0.082009"/>
+<status status="PASS" start="2024-07-01T15:09:22.712174" elapsed="0.081535"/>
 </kw>
-<kw name="E preencha email, nome, senha e confirmar senha corretamente e clicar em cadastrar" owner="register">
-<kw name="Email" owner="FakerLibrary">
-<msg time="2024-07-01T13:42:38.889682" level="INFO">${Email} = catarinacampos@example.org</msg>
-<var>${Email}</var>
-<status status="PASS" start="2024-07-01T13:42:38.889682" elapsed="0.000995"/>
-</kw>
+<kw name="E insira usuário e senha corretamente" owner="register">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-07-01T13:42:38.890677" level="INFO">Typing text 'catarinacampos@example.org' into text field 'id:email'.</msg>
+<msg time="2024-07-01T15:09:22.794708" level="INFO">Typing text 'teste10@email.com' into text field 'id:email'.</msg>
 <arg>${CAMPO_EMAIL}</arg>
-<arg>${Email}</arg>
+<arg>teste10@email.com</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-01T13:42:38.890677" elapsed="0.159063"/>
+<status status="PASS" start="2024-07-01T15:09:22.794708" elapsed="0.131011"/>
 </kw>
-<kw name="Name" owner="FakerLibrary">
-<msg time="2024-07-01T13:42:39.049740" level="INFO">${Nome} = Mariana Porto</msg>
-<var>${Nome}</var>
-<doc>:example: 'John Doe'</doc>
-<status status="PASS" start="2024-07-01T13:42:39.049740" elapsed="0.000000"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-07-01T13:42:39.050746" level="INFO">Typing text 'Mariana Porto' into text field 'id:name'.</msg>
-<arg>${CAMPO_NOME}</arg>
-<arg>${Nome}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-01T13:42:39.050746" elapsed="0.100524"/>
-</kw>
-<kw name="Password" owner="FakerLibrary">
-<msg time="2024-07-01T13:42:39.151270" level="INFO">${Senha} = G^7SRmRY$E</msg>
-<var>${Senha}</var>
-<doc>Generate a random password of the specified ``length``.</doc>
-<status status="PASS" start="2024-07-01T13:42:39.151270" elapsed="0.000000"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-07-01T13:42:39.152264" level="INFO">Typing text 'G^7SRmRY$E' into text field 'id:password'.</msg>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-07-01T15:09:22.926721" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2024-07-01T15:09:22.961249" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>${CAMPO_SENHA}</arg>
-<arg>${Senha}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-01T13:42:39.151270" elapsed="0.095078"/>
+<arg>Senha1234</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-01T15:09:22.926721" elapsed="0.099059"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-07-01T13:42:39.247362" level="INFO">Typing text 'G^7SRmRY$E' into text field 'name:confirmarSenha'.</msg>
-<arg>${CONFIRMAR_SENHA}</arg>
-<arg>${Senha}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-01T13:42:39.247362" elapsed="0.084035"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-01T15:09:23.025780" level="INFO">Clicking element 'class:submit-button'.</msg>
+<arg>class:submit-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-01T15:09:23.025780" elapsed="0.047005"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-07-01T13:42:39.331397" level="INFO">Clicking button 'class:submit-button'.</msg>
-<arg>${CLICAR_BOTAO}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-01T13:42:39.331397" elapsed="0.051999"/>
+<status status="PASS" start="2024-07-01T15:09:22.793709" elapsed="0.280078"/>
 </kw>
-<status status="PASS" start="2024-07-01T13:42:38.888676" elapsed="0.494720"/>
-</kw>
-<kw name="Entao ele deve ser redirecionado para a página de pets" owner="register">
+<kw name="Então ele deve ser redirecionado para a página home" owner="register">
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-07-01T13:42:41.384571" level="INFO">Slept 2 seconds.</msg>
+<msg time="2024-07-01T15:09:25.075033" level="INFO">Slept 2 seconds.</msg>
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-07-01T13:42:39.384392" elapsed="2.000179"/>
+<status status="PASS" start="2024-07-01T15:09:23.074788" elapsed="2.000245"/>
 </kw>
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-07-01T13:42:41.417580" level="INFO">Element 'class:pet-container' is displayed.</msg>
+<msg time="2024-07-01T15:09:25.093042" level="INFO">Element 'class:pet-container' is displayed.</msg>
 <arg>class:pet-container</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-07-01T13:42:41.384571" elapsed="0.033009"/>
+<status status="PASS" start="2024-07-01T15:09:25.075033" elapsed="0.019011"/>
 </kw>
-<status status="PASS" start="2024-07-01T13:42:39.384392" elapsed="2.034191"/>
+<status status="PASS" start="2024-07-01T15:09:23.073787" elapsed="2.020257"/>
 </kw>
 <kw name="Fechar browser" owner="setup_teardown" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-07-01T13:42:41.418583" elapsed="2.156941"/>
+<status status="PASS" start="2024-07-01T15:09:25.094044" elapsed="2.135352"/>
 </kw>
-<status status="PASS" start="2024-07-01T13:42:41.418583" elapsed="2.156941"/>
+<status status="PASS" start="2024-07-01T15:09:25.094044" elapsed="2.135352"/>
 </kw>
-<status status="PASS" start="2024-07-01T13:42:37.164322" elapsed="6.412202"/>
+<status status="PASS" start="2024-07-01T15:09:21.087288" elapsed="6.142108"/>
 </test>
-<status status="PASS" start="2024-07-01T13:42:36.527737" elapsed="7.049785"/>
+<status status="PASS" start="2024-07-01T15:09:20.417659" elapsed="6.813740"/>
 </suite>
 <statistics>
 <total>
@@ -108,7 +78,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Sussecceful Register">Sussecceful Register</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Sussecceful Login">Sussecceful Login</stat>
 </suite>
 </statistics>
 <errors>
