@@ -1,53 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-06-30T13:09:11.296737" rpa="false" schemaversion="5">
-<suite id="s1" name="Teste If" source="c:\Users\Micael\OneDrive\Área de Trabalho\Carreia Teste\Curso-Alura-Robot Framework\teste_if.robot">
-<test id="s1-t1" name="Exemplo bloco IF" line="12">
-<kw name="Log To Console" owner="BuiltIn" type="SETUP">
-<arg>${\n}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-06-30T13:09:11.324297" elapsed="0.001001"/>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-07-01T13:42:36.521740" rpa="false" schemaversion="5">
+<suite id="s1" name="Sussecceful Register" source="c:\Users\Micael\OneDrive\Área de Trabalho\Carreia Teste\Curso-Alura-Robot Framework\Site Adopet\testes\sussecceful_register.robot">
+<test id="s1-t1" name="Verificar se o cadastro de um novo usuário e realizado com sucesso" line="9">
+<kw name="Acessar a URL" owner="setup_teardown" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-01T13:42:37.166325" level="INFO">Opening browser 'Chrome' to base url 'https://adopet-challenge.vercel.app/'.</msg>
+<arg>url=https://adopet-challenge.vercel.app/</arg>
+<arg>browser=Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-01T13:42:37.166325" elapsed="1.638341"/>
 </kw>
-<if>
-<branch type="IF" condition="${NUMERO} &gt; 0">
-<kw name="Mostrar mensagem quando o número for maior que zero">
-<status status="NOT RUN" start="2024-06-30T13:09:11.326301" elapsed="0.000000"/>
+<status status="PASS" start="2024-07-01T13:42:37.165322" elapsed="1.639344"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<arg>message= Você está vendo essa mensagem porque o bloco IF foi executado e sua condição é verdadeira</arg>
-<arg>console=True</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2024-06-30T13:09:11.326301" elapsed="0.000000"/>
+<kw name="Dado que o usuário clique em Quero me cadastrar" owner="register">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-01T13:42:38.807669" level="INFO">Clicking element '//a[contains(.,'Quero me cadastrar')]'.</msg>
+<arg>//a[contains(.,'Quero me cadastrar')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-01T13:42:38.806672" elapsed="0.081008"/>
 </kw>
-<status status="NOT RUN" start="2024-06-30T13:09:11.325298" elapsed="0.001003"/>
-</branch>
-<branch type="ELSE">
-<kw name="Mostrar mensagem quando o número for menor que zero">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>O número [${NUMERO}] é menor que zero!</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-06-30T13:09:11.326301" elapsed="0.000995"/>
+<status status="PASS" start="2024-07-01T13:42:38.805671" elapsed="0.082009"/>
 </kw>
-<status status="PASS" start="2024-06-30T13:09:11.326301" elapsed="0.000995"/>
+<kw name="E preencha email, nome, senha e confirmar senha corretamente e clicar em cadastrar" owner="register">
+<kw name="Email" owner="FakerLibrary">
+<msg time="2024-07-01T13:42:38.889682" level="INFO">${Email} = catarinacampos@example.org</msg>
+<var>${Email}</var>
+<status status="PASS" start="2024-07-01T13:42:38.889682" elapsed="0.000995"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-06-30T13:09:11.327296" level="INFO"> Você está vendo essa mensagem porque o bloco IF foi executado e sua condição é falsa</msg>
-<arg>message= Você está vendo essa mensagem porque o bloco IF foi executado e sua condição é falsa</arg>
-<arg>console=True</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-06-30T13:09:11.327296" elapsed="0.003005"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-01T13:42:38.890677" level="INFO">Typing text 'catarinacampos@example.org' into text field 'id:email'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-01T13:42:38.890677" elapsed="0.159063"/>
 </kw>
-<status status="PASS" start="2024-06-30T13:09:11.326301" elapsed="0.004000"/>
-</branch>
-<status status="PASS" start="2024-06-30T13:09:11.325298" elapsed="0.005003"/>
-</if>
-<kw name="Log To Console" owner="BuiltIn" type="TEARDOWN">
-<arg>${\n}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-06-30T13:09:11.330951" elapsed="0.000000"/>
+<kw name="Name" owner="FakerLibrary">
+<msg time="2024-07-01T13:42:39.049740" level="INFO">${Nome} = Mariana Porto</msg>
+<var>${Nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2024-07-01T13:42:39.049740" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-06-30T13:09:11.323296" elapsed="0.008668"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-01T13:42:39.050746" level="INFO">Typing text 'Mariana Porto' into text field 'id:name'.</msg>
+<arg>${CAMPO_NOME}</arg>
+<arg>${Nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-01T13:42:39.050746" elapsed="0.100524"/>
+</kw>
+<kw name="Password" owner="FakerLibrary">
+<msg time="2024-07-01T13:42:39.151270" level="INFO">${Senha} = G^7SRmRY$E</msg>
+<var>${Senha}</var>
+<doc>Generate a random password of the specified ``length``.</doc>
+<status status="PASS" start="2024-07-01T13:42:39.151270" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-01T13:42:39.152264" level="INFO">Typing text 'G^7SRmRY$E' into text field 'id:password'.</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${Senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-01T13:42:39.151270" elapsed="0.095078"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-01T13:42:39.247362" level="INFO">Typing text 'G^7SRmRY$E' into text field 'name:confirmarSenha'.</msg>
+<arg>${CONFIRMAR_SENHA}</arg>
+<arg>${Senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-01T13:42:39.247362" elapsed="0.084035"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-07-01T13:42:39.331397" level="INFO">Clicking button 'class:submit-button'.</msg>
+<arg>${CLICAR_BOTAO}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-01T13:42:39.331397" elapsed="0.051999"/>
+</kw>
+<status status="PASS" start="2024-07-01T13:42:38.888676" elapsed="0.494720"/>
+</kw>
+<kw name="Entao ele deve ser redirecionado para a página de pets" owner="register">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-07-01T13:42:41.384571" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-07-01T13:42:39.384392" elapsed="2.000179"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-07-01T13:42:41.417580" level="INFO">Element 'class:pet-container' is displayed.</msg>
+<arg>class:pet-container</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-07-01T13:42:41.384571" elapsed="0.033009"/>
+</kw>
+<status status="PASS" start="2024-07-01T13:42:39.384392" elapsed="2.034191"/>
+</kw>
+<kw name="Fechar browser" owner="setup_teardown" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-01T13:42:41.418583" elapsed="2.156941"/>
+</kw>
+<status status="PASS" start="2024-07-01T13:42:41.418583" elapsed="2.156941"/>
+</kw>
+<status status="PASS" start="2024-07-01T13:42:37.164322" elapsed="6.412202"/>
 </test>
-<status status="PASS" start="2024-06-30T13:09:11.302843" elapsed="0.030119"/>
+<status status="PASS" start="2024-07-01T13:42:36.527737" elapsed="7.049785"/>
 </suite>
 <statistics>
 <total>
@@ -56,10 +108,9 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Teste If">Teste If</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Sussecceful Register">Sussecceful Register</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2024-06-30T13:09:11.273513" level="WARN">Error in file 'c:\Users\Micael\OneDrive\Área de Trabalho\Carreia Teste\Curso-Alura-Robot Framework\teste_if.robot' on line 8: Singular section headers like '*** Test Case ***' are deprecated. Use plural format like '*** Test Cases ***' instead.</msg>
 </errors>
 </robot>

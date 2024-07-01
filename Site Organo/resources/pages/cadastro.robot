@@ -1,9 +1,5 @@
 *** Settings ***
-Library         SeleniumLibrary
-Library         FakerLibrary    locale=pt_BR
-Resource        setup_teardown.robot
-Test Setup      Dado que o usuário acesse o site organo
-Test Teardown   Fechar o navegador
+Resource    ../main.robot
 
 *** Variables ***
 ${URL}                    http://localhost:3000/
@@ -12,6 +8,7 @@ ${CAMPO_CARGO}            id:form-cargo
 ${CAMPO_IMAGEM}           id:form-imagem
 ${CAMPO_TIME}             class:lista-suspensa
 ${BOTAO_CARD}             id:form-botao
+
 @{selecionar_times}
 ...      //option[contains(.,'Programação')]
 ...      //option[contains(.,'Front-End')]
@@ -20,23 +17,6 @@ ${BOTAO_CARD}             id:form-botao
 ...      //option[contains(.,'UX e Design')]
 ...      //option[contains(.,'Mobile')]
 ...      //option[contains(.,'Inovação e Gestão')]
-
-*** Test Cases ***
-Verificar se os dado são preencidos no formulário e o card é criado no time corretamente.
-    Dado que o usuário preencha os campos do formulário
-    E clique no botão criar card
-    Então o card deve estar visível no time correto
-
-
-Verificar a criação de mais de um card 
-    Dado que o usuário preencha os campos do formulário
-    E clique no botão criar card
-    Então deve ser criado 3 cards no time esperado
-
-Verificar se é possivel criar cards em times separados se preenchermos os campos corretamente
-    Dado que o usuário preencha os campos do formulário
-    Então criar e identificar um card em cada time disponível
-
 
 *** Keywords ***
 Dado que o usuário preencha os campos do formulário
@@ -64,7 +44,6 @@ Então deve ser criado 3 cards no time esperado
     END
     Sleep    10s
 
-
 Então criar e identificar um card em cada time disponível
     FOR    ${indice}    ${time}    IN ENUMERATE    @{selecionar_times}
         Dado que o usuário preencha os campos do formulário
@@ -72,3 +51,13 @@ Então criar e identificar um card em cada time disponível
         E clique no botão criar card
     END
     Sleep    10s
+
+Dado que o usuário clique no botão criar card
+    Click Button    ${BOTAO_CARD}
+    
+Então o sistema deve apresentar as menssagens de compo obrigatório
+    Element Should Be Visible    id:form-nome-erro
+    Element Should Be Visible    id:form-cargo-erro
+    Element Should Be Visible    id:form-times-erro
+    
+

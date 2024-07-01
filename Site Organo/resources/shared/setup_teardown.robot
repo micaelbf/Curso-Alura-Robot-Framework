@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource   ../main.robot
 
 *** Keywords ***
 Dado que o usuário acesse o site organo
