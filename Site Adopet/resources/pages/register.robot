@@ -1,12 +1,13 @@
 *** Settings ***
 Resource    ../main.robot
+Library    XML
 
 *** Variables ***
-${CAMPO_EMAIL}     id:email
-${CAMPO_NOME}      id:name
-${CAMPO_SENHA}     id:password
-${CONFIRMAR_SENHA}   name:confirmarSenha
-${CLICAR_BOTAO}   class:submit-button  
+${CAMPO_EMAIL}         id:email
+${CAMPO_NOME}          id:name
+${CAMPO_SENHA}         id:password
+${CONFIRMAR_SENHA}     name:confirmarSenha
+${CLICAR_BOTAO}        class:submit-button  
 
 *** Keywords ***
 Dado que o usuário clique em Quero me cadastrar
@@ -34,10 +35,6 @@ E insira usuário e senha corretamente e clique em entrar
     Input Password    ${CAMPO_SENHA}    Senha1234
     Click Element    class:submit-button
 
-Então ele deve ser redirecionado para a página pets
-    Sleep    2s
-    Location Should Be    https://adopet-challenge.vercel.app/pets
-
 E clique em entrar sem digitar as credenciais de login
     Click Button    ${CLICAR_BOTAO}  
 
@@ -49,7 +46,16 @@ E clique em cadastrar sem preencher o formulário
     Click Button    ${CLICAR_BOTAO}
 
 Então deve receber as menssagens de erro de compos obrigatórios
-    Element Should Be Visible    //div[contains(.,'email é obrigatório')]
-    Element Should Be Visible    //div[contains(.,'nome é obrigatório')]
-    Element Should Be Visible    //div[contains(.,'senha é obrigatória')]
-    Element Should Be Visible    //div[contains(.,'confirmação de senha obrigatória')]  
+    Element Should Be Visible    //div[@class='erro'][contains(.,'email é obrigatório')]
+    Element Should Be Visible    //div[@class='erro'][contains(.,'nome é obrigatório')]
+    Element Should Be Visible    //div[@class='erro'][contains(.,'senha é obrigatória')]
+    Element Should Be Visible    //div[@class='erro'][contains(.,'confirmação de senha obrigatória')]
+
+E digite o e-mail incorretamente e a senha com menos de seis caracteres
+    Input Text      ${CAMPO_EMAIL}     @asdasdf.com
+    Input Text      ${CAMPO_SENHA}     @@@@@
+    Click Button    ${CLICAR_BOTAO}
+
+Então ele deve receber a menssagens de erro "email inválido" e "Mínimo de 6 caracteres" 
+    Element Should Be Visible    //div[@class='erro'][contains(.,'email inválido')]
+    Element Should Be Visible    //div[@class="erro"][contains(.,'Mínimo de 6 caracteres')]
