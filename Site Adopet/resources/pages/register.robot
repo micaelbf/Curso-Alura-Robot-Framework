@@ -23,7 +23,7 @@ E preencha email, nome, senha e confirmar senha corretamente e clicar em cadastr
     Input Text      ${CONFIRMAR_SENHA}            ${Senha}
     Click Button    ${CLICAR_BOTAO}            
 
-Entao ele deve ser redirecionado para a página de pets
+Então ele deve ser redirecionado para a página "https://adopet-challenge.vercel.app/pets"
     Sleep    2s
     Element Should Be Visible    class:pet-container
 
