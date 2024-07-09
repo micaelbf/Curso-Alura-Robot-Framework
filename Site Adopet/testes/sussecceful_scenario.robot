@@ -6,13 +6,14 @@ Test Teardown    Fechar browser
 
 *** Test Cases ***
 
-Testar se o acesso do usuário já cadastrado é efetuado com sucesso 
-    Dado que o usuário clique em já tenho conta
-    E insira usuário e senha corretamente e clique em entrar
-    Então ele deve ser redirecionado para a página "https://adopet-challenge.vercel.app/pets"
+CT001.001-Verificar se o acesso de um usuário já cadastrado é efetuado com sucesso 
+    Dado que o usuário clique em "Já tenho conta"
+    Quando inserir um usuário válido
+    E clicar em "Entrar"
+    Então ele deve ser redirecionado para a página de adoção de pets
 
-Testar se o cadastro de um novo usuário e realizado com sucesso
-    Dado que o usuário clique em Quero me cadastrar
-    E preencha email, nome, senha e confirmar senha corretamente e clicar em cadastrar
-    Então ele deve ser redirecionado para a página "https://adopet-challenge.vercel.app/pets"
-    
+CT002.001-Verificar se o cadastrado de um usuário é relizado com sucesso 
+    Dado que o usuário clique em "Quero me cadastrar"
+    Quando digitar os os campos email, nome, senha e confirmar sua senha
+    E clicar no botão "Cadastrar"
+    Então o usuário deve receber a menssagem de cadastro realizado com sucesso e ser redirecionado para a página de adoção de pets
