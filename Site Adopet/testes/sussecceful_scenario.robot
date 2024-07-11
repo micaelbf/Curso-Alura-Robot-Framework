@@ -17,3 +17,13 @@ CT002.001-Verificar se o cadastrado de um usuário é relizado com sucesso
     Quando digitar os os campos email, nome, senha e confirmar sua senha
     E clicar no botão "Cadastrar"
     Então o usuário deve receber a menssagem de cadastro realizado com sucesso e ser redirecionado para a página de adoção de pets
+
+CT003.001-Verificar icone home na tela inicial
+    Dado que o usuário esteja na tela home do site Adopet
+    Quando o usuário clicar no icone home
+    Então deve ser redirecionado para a página de login
+
+CT003.002-Verificar icone home na tela inicial
+    Dado que o usuário esteja na tela home do site Adopet
+    Quando o usuário clicar no icone menssagem
+    Então deve ser redirecionado para a página de login
