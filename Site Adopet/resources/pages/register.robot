@@ -37,7 +37,6 @@ E clicar no botão "Cadastrar"
 Então o usuário deve receber a menssagem de cadastro realizado com sucesso e ser redirecionado para a página de adoção de pets
   Sleep    2s
   Location Should Be            https://adopet-challenge.vercel.app/pets
-
 Dado que o usuário esteja na tela home do site Adopet
   Acessar a URL
 Quando o usuário clicar no icone home
@@ -46,3 +45,11 @@ Então deve ser redirecionado para a página de login
   Location Should Be    https://adopet-challenge.vercel.app/login
 Quando o usuário clicar no icone menssagem
   Click Element    //img[@alt='link para enviar mensagem']
+
+Dado que o usuário estejá na página de login
+  Click Element    //a[@href='/login']
+Quando clicar em entrar sem digitar as credenciais de login
+  Click Element    ${CLICAR_BOTAO}
+Eentão deve receber as menssagens de erro "Insira seu email" e "Insira sua Senha"
+  Element Should Be Visible    //div[contains(.,'Insira seu email')]
+  Element Should Be Visible    //div[@class='erro'][contains(.,'Insira sua senha')]
