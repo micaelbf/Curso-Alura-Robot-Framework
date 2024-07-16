@@ -9,7 +9,7 @@ on:
 
 jobs:
   testes:
-    runs-on: windows
+    runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v4
@@ -17,4 +17,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 20.
+    - run: pip install robotframework
+    - run: pip install --upgrade robotframework-seleniumlibrary
     - run: robot  faill_scenario.robot
