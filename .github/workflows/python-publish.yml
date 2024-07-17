@@ -4,9 +4,8 @@
 name: Robot Framework CI
 
 on:
-
-  pull_request:
-    branches: [ "main" ]
+ pull_request:
+  branches: [ "master" ]
 
 jobs:
     Run-Test:
