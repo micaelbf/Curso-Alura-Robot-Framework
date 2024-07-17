@@ -1,8 +1,8 @@
 *** Settings ***
 Resource    ../main.robot
-Library    XML
 
 *** Variables ***
+${CADASTRAR}           //a[@href='/cadastro']
 ${CAMPO_EMAIL}         id:email
 ${CAMPO_NOME}          id:name
 ${CAMPO_SENHA}         id:password
@@ -10,20 +10,9 @@ ${CONFIRMAR_SENHA}     name:confirmarSenha
 ${CLICAR_BOTAO}        class:submit-button
 
 *** Keywords ***
-
-Dado que o usuário clique em "Já tenho conta"
-  Click Element    //a[@href='/login']
-Quando inserir um usuário válido
-  Input Text        ${CAMPO_EMAIL}    teste10@email.com
-  Input Password    ${CAMPO_SENHA}    Senha1234
-E clicar em "Entrar"
-  Click Element    ${CLICAR_BOTAO} 
-Então ele deve ser redirecionado para a página de adoção de pets
-  Sleep    2s
-  Location Should Be    https://adopet-challenge.vercel.app/pets
-
 Dado que o usuário clique em "Quero me cadastrar"
-  Click Element  //a[@href='/cadastro']
+  Click Element      ${CADASTRAR}
+
 Quando digitar os os campos email, nome, senha e confirmar sua senha
   ${Email}      Fakerlibrary.Email
   Input Text    ${CAMPO_EMAIL}        ${Email}
@@ -32,24 +21,10 @@ Quando digitar os os campos email, nome, senha e confirmar sua senha
   ${Senha}      Fakerlibrary.Password
   Input Text    ${CAMPO_SENHA}        ${Senha}
   Input Text    ${CONFIRMAR_SENHA}    ${Senha}
+
 E clicar no botão "Cadastrar"
   Click Element    ${CLICAR_BOTAO}
+
 Então o usuário deve receber a menssagem de cadastro realizado com sucesso e ser redirecionado para a página de adoção de pets
   Sleep    2s
   Location Should Be            https://adopet-challenge.vercel.app/pets
-Dado que o usuário esteja na tela home do site Adopet
-  Acessar a URL
-Quando o usuário clicar no icone home
-  Click Element    //img[@alt='link para a homepage']
-Então deve ser redirecionado para a página de login
-  Location Should Be    https://adopet-challenge.vercel.app/login
-Quando o usuário clicar no icone menssagem
-  Click Element    //img[@alt='link para enviar mensagem']
-
-Dado que o usuário estejá na página de login
-  Click Element    //a[@href='/login']
-Quando clicar em entrar sem digitar as credenciais de login
-  Click Element    ${CLICAR_BOTAO}
-Eentão deve receber as menssagens de erro "Insira seu email" e "Insira sua Senha"
-  Element Should Be Visible    //div[contains(.,'Insira seu email')]
-  Element Should Be Visible    //div[@class='erro'][contains(.,'Insira sua senha')]
