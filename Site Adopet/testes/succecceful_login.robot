@@ -1,8 +1,8 @@
 *** Settings ***
-Resource  ../resources/pages/login.robot
-Resource  ../resources/main.robot
-Test Setup       Acessar a URL
-Test Teardown    Fechar browser
+Resource          ../resources/pages/login.robot
+Resource          ../resources/main.robot
+Test Setup        Acessar a URL
+Test Teardown     Fechar browser
 
 *** Test Cases ***
 CT001.001-Verificar se o acesso de um usuário já cadastrado é efetuado com sucesso 

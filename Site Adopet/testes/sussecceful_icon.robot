@@ -1,8 +1,8 @@
 *** Settings ***
-Resource  ../resources/pages/home.robot
-Resource  ../resources/main.robot
-Test Setup       Acessar a URL
-Test Teardown    Fechar browser
+Resource          ../resources/pages/home.robot
+Resource          ../resources/main.robot
+Test Setup        Acessar a URL
+Test Teardown     Fechar browser
 
 *** Test Cases ***
 CT003.001-Verificar icones home na tela inicial
