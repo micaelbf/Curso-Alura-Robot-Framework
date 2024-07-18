@@ -18,4 +18,11 @@ E clicar em "Entrar"
 Então ele deve ser redirecionado para a página de adoção de pets
     Sleep    2
     Location Should Be    https://adopet-challenge.vercel.app/pets
+Quando clicar em entrar sem digitar as credenciais de login
+    Click Element     ${CLICAR_BOTAO}
+Então deve receber as menssagens de erro "Insira seu email" e "Insira sua Senha"
+    Sleep    2s
+    Should Be Visible    //div[@class='erro'][contains(.,'Insira seu email')]
+    Should Be Visible    //div[@class='erro'][contains(.,'Insira sua senha')]
+    
 
