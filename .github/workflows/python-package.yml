@@ -36,5 +36,5 @@ jobs:
 
     - name: Run Robot Framework tests
       run: |
-        robot Site Adopet/testes
+        robot "Site Adopet/testes"
     
