@@ -21,8 +21,7 @@ Então ele deve ser redirecionado para a página de adoção de pets
 Quando clicar em entrar sem digitar as credenciais de login
     Click Element     ${CLICAR_BOTAO}
 Então deve receber as menssagens de erro "Insira seu email" e "Insira sua Senha"
-    Sleep    2s
-    Should Be Visible    //div[@class='erro'][contains(.,'Insira seu email')]
-    Should Be Visible    //div[@class='erro'][contains(.,'Insira sua senha')]
+    Element Should Be Visible      //div[@class='erro'][contains(.,'Insira seu email')]
+    Element Should Be Visible      //div[@class='erro'][contains(.,'Insira sua senha')]
     
 

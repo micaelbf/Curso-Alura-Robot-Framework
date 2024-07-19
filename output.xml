@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-07-18T21:58:26.558830" rpa="false" schemaversion="5">
+<suite id="s1" name="Faill Login" source="c:\Users\Micael\OneDrive\Área de Trabalho\Carreia Teste\Curso-Alura-Robot Framework\Site Adopet\testes\faill_login.robot">
+<test id="s1-t1" name="CT001.001-Verificar menssagens de erro quando o usuário não digitar &quot;email&quot; e &quot;senha&quot; na tela de &quot;login&quot;" line="10">
+<kw name="Acessar a URL" owner="setup_teardown" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-18T21:58:27.487084" level="INFO">Opening browser 'Chrome' to base url 'https://adopet-challenge.vercel.app/'.</msg>
+<arg>url=https://adopet-challenge.vercel.app/</arg>
+<arg>browser=Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-18T21:58:27.487084" elapsed="1.861576"/>
+</kw>
+<status status="PASS" start="2024-07-18T21:58:27.487084" elapsed="1.861576"/>
+</kw>
+<kw name="Dado que o usuário clique em &quot;Já tenho conta&quot;" owner="login">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-18T21:58:29.352701" level="INFO">Clicking element '//a[@href="/login"]'.</msg>
+<arg>${CLICAR_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-18T21:58:29.352701" elapsed="0.130102"/>
+</kw>
+<status status="PASS" start="2024-07-18T21:58:29.348660" elapsed="0.134143"/>
+</kw>
+<kw name="Quando clicar em entrar sem digitar as credenciais de login" owner="login">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-18T21:58:29.486365" level="INFO">Clicking element 'class:submit-button'.</msg>
+<arg>${CLICAR_BOTAO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-18T21:58:29.485368" elapsed="0.082543"/>
+</kw>
+<status status="PASS" start="2024-07-18T21:58:29.483317" elapsed="0.084594"/>
+</kw>
+<kw name="Então deve receber as menssagens de erro &quot;Insira seu email&quot; e &quot;Insira sua Senha&quot;" owner="login">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-07-18T21:58:29.657874" level="INFO">Element '//div[@class='erro'][contains(.,'Insira seu email')]' is displayed.</msg>
+<arg>//div[@class='erro'][contains(.,'Insira seu email')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-07-18T21:58:29.567911" elapsed="0.089963"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-07-18T21:58:29.689165" level="INFO">Element '//div[@class='erro'][contains(.,'Insira sua senha')]' is displayed.</msg>
+<arg>//div[@class='erro'][contains(.,'Insira sua senha')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-07-18T21:58:29.657874" elapsed="0.032289"/>
+</kw>
+<status status="PASS" start="2024-07-18T21:58:29.567911" elapsed="0.122252"/>
+</kw>
+<kw name="Fechar browser" owner="setup_teardown" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-07-18T21:58:29.908071" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-07-18T21:58:29.691162" elapsed="0.216909"/>
+</kw>
+<status status="PASS" start="2024-07-18T21:58:29.691162" elapsed="0.216909"/>
+</kw>
+<status status="PASS" start="2024-07-18T21:58:27.486624" elapsed="2.422450"/>
+</test>
+<status status="PASS" start="2024-07-18T21:58:26.563856" elapsed="3.347212"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Faill Login">Faill Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
