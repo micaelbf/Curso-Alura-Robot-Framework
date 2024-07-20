@@ -34,7 +34,7 @@ jobs:
     - name: Set up Chrome dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y wget gnupg
+        sudo apt-get install -y wget gnupg unzip
         wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
         sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
         sudo apt-get update
@@ -42,7 +42,8 @@ jobs:
 
     - name: Download and setup ChromeDriver
       run: |
-        CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+        CHROME_DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
         wget -N https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip -d /usr/local/bin/
         rm chromedriver_linux64.zip
