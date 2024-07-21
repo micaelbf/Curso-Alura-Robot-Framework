@@ -38,14 +38,15 @@ jobs:
         unzip chrome-linux64.zip
         sudo mv chrome-linux64 /opt/chrome
         sudo ln -s /opt/chrome/chrome /usr/bin/chrome
+        chrome --version
     
     - name: Install Chromedriver
       run: | 
         wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.182/linux64/chromedriver-linux64.zip
         unzip chromedriver_linux64.zip
-        sudo mv chromedriver /usr/bin/chromedriver
-        sudo chown root:root /usr/bin/chromedriver
-        sudo chmod +x /usr/bin/chromedriver
+        sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
+        sudo chmod +x /usr/local/bin/chromedriver
+        chromedriver --version
     
     - name: Install Robot Framework
       run:  pip install robotframework
