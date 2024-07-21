@@ -35,9 +35,9 @@ jobs:
       run: |
         sudo apt update
         wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.182/linux64/chrome-linux64.zip
-        sudo dpkg -i google-chrome-stable_current_amd64.deb
-        sudo apt-get install -f
-        google-chrome --version
+        unzip chrome-linux64.zip
+        sudo mv chrome-linux64 /opt/chrome
+        sudo ln -s /opt/chrome/chrome /usr/bin/chrome
     
     - name: Install Chromedriver
       run: | 
