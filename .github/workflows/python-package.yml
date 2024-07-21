@@ -47,6 +47,8 @@ jobs:
         sudo mv chromedriver-linux64/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
         sudo chmod +x /usr/local/bin/chromedriver
         chromedriver --version
+      env:
+         PATH: /opt/google/chrome:$PATH
     
     - name: Install Robot Framework
       run:  pip install robotframework
