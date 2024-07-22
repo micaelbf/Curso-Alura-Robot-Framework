@@ -1,90 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-07-22T13:31:10.293153" rpa="false" schemaversion="5">
-<suite id="s1" name="Faill Login" source="c:\Users\Micael\OneDrive\Área de Trabalho\Carreia Teste\Curso-Alura-Robot Framework\Site Adopet\testes\faill_login.robot">
-<test id="s1-t1" name="CT001.002-Verificar menssagens de erro quando o usuário digitar um email inválido sem &quot;&quot;@&quot;&quot; e a senha com menos de seis caracteres" line="15">
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-07-22T15:05:41.178620" rpa="false" schemaversion="5">
+<suite id="s1" name="Faill Register" source="c:\Users\Micael\OneDrive\Área de Trabalho\Carreia Teste\Curso-Alura-Robot Framework\Site Adopet\testes\faill_register.robot">
+<test id="s1-t1" name="CT002.003-Verificar quando o usuário inserir numero no campo nome" line="21">
 <kw name="Acessar a URL" owner="setup_teardown" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-07-22T13:31:10.920127" level="INFO">Opening browser 'Chrome' to base url 'https://adopet-challenge.vercel.app/'.</msg>
+<msg time="2024-07-22T15:05:41.912432" level="INFO">Opening browser 'Chrome' to base url 'https://adopet-challenge.vercel.app/'.</msg>
 <arg>url=https://adopet-challenge.vercel.app/</arg>
 <arg>browser=Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-07-22T13:31:10.920127" elapsed="1.732250"/>
+<status status="PASS" start="2024-07-22T15:05:41.912432" elapsed="1.680491"/>
 </kw>
-<status status="PASS" start="2024-07-22T13:31:10.920127" elapsed="1.732250"/>
+<status status="PASS" start="2024-07-22T15:05:41.912432" elapsed="1.680491"/>
 </kw>
-<kw name="Dado que o usuário clique em &quot;Já tenho conta&quot;" owner="login">
+<kw name="Dado que o usuário clique em &quot;Quero me cadastrar&quot;" owner="register">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-07-22T13:31:12.652377" level="INFO">Clicking element '//a[@href="/login"]'.</msg>
-<arg>${CLICAR_LOGIN}</arg>
+<msg time="2024-07-22T15:05:43.599341" level="INFO">Clicking element '//a[@href='/cadastro']'.</msg>
+<arg>${CADASTRAR}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-22T13:31:12.652377" elapsed="0.087879"/>
+<status status="PASS" start="2024-07-22T15:05:43.598589" elapsed="0.093592"/>
 </kw>
-<status status="PASS" start="2024-07-22T13:31:12.652377" elapsed="0.088620"/>
+<status status="PASS" start="2024-07-22T15:05:43.592923" elapsed="0.099258"/>
 </kw>
-<kw name="Quando digitar o e-mail inválido sem &quot;@&quot;" owner="login">
+<kw name="Quando ele inserir um numero no campo &quot;nome&quot;" owner="register">
+<kw name="Numerify" owner="FakerLibrary">
+<msg time="2024-07-22T15:05:43.693181" level="INFO">${numero} = 438</msg>
+<var>${numero}</var>
+<doc>Generate a string with each placeholder in ``text`` replaced according
+to the following rules:</doc>
+<status status="PASS" start="2024-07-22T15:05:43.693181" elapsed="0.000000"/>
+</kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-07-22T13:31:12.743147" level="INFO">Typing text 'ana.email.com' into text field 'id:email'.</msg>
-<arg>${EMAIL}</arg>
-<arg>ana.email.com</arg>
+<msg time="2024-07-22T15:05:43.694184" level="INFO">Typing text '438' into text field 'id:name'.</msg>
+<arg>${CAMPO_NOME}</arg>
+<arg>${numero}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-22T13:31:12.742010" elapsed="0.138337"/>
+<status status="PASS" start="2024-07-22T15:05:43.694184" elapsed="0.114425"/>
 </kw>
-<status status="PASS" start="2024-07-22T13:31:12.742010" elapsed="0.139271"/>
+<status status="PASS" start="2024-07-22T15:05:43.693181" elapsed="0.115428"/>
 </kw>
-<kw name="E a senha com menos de seis caracteres" owner="login">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-07-22T13:31:12.882817" level="INFO">Typing text 'Senha' into text field 'id:password'.</msg>
-<arg>${PASSWORD}</arg>
-<arg>Senha</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-22T13:31:12.882817" elapsed="0.097277"/>
-</kw>
-<status status="PASS" start="2024-07-22T13:31:12.881281" elapsed="0.098813"/>
-</kw>
-<kw name="E clicar em &quot;Entrar&quot;" owner="login">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-07-22T13:31:12.982113" level="INFO">Clicking element 'class:submit-button'.</msg>
-<arg>${CLICAR_BOTAO}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-22T13:31:12.982113" elapsed="0.039699"/>
-</kw>
-<status status="PASS" start="2024-07-22T13:31:12.981110" elapsed="0.040702"/>
-</kw>
-<kw name="Então ele deve receber a menssagens de erro &quot;Email inválido&quot; e &quot;Mínimo de 6 caracteres&quot;" owner="login">
+<kw name="Então deve ser apresentado a menssagem de &quot;caracter inválido&quot;" owner="register">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-07-22T13:31:13.053098" level="INFO">Element '//div[@class='erro'][contains(.,'email inválido')]' is displayed.</msg>
-<arg>//div[@class='erro'][contains(.,'email inválido')]</arg>
+<msg time="2024-07-22T15:05:44.059102" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-07-22T15:05:44.068584" level="FAIL">Element with locator '//div[@class='erro'][contains(.,'caracter inválido')]' not found.</msg>
+<arg>//div[@class='erro'][contains(.,'caracter inválido')]</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-07-22T13:31:13.021812" elapsed="0.031286"/>
+<status status="FAIL" start="2024-07-22T15:05:43.809873" elapsed="0.259382">Element with locator '//div[@class='erro'][contains(.,'caracter inválido')]' not found.</status>
 </kw>
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-07-22T13:31:13.074851" level="INFO">Element '//div[@class='erro'][contains(.,'Mínimo de 6 caracteres')]' is displayed.</msg>
-<arg>//div[@class='erro'][contains(.,'Mínimo de 6 caracteres')]</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-07-22T13:31:13.053098" elapsed="0.021753"/>
-</kw>
-<status status="PASS" start="2024-07-22T13:31:13.021812" elapsed="0.053039"/>
+<status status="FAIL" start="2024-07-22T15:05:43.808609" elapsed="0.260646">Element with locator '//div[@class='erro'][contains(.,'caracter inválido')]' not found.</status>
 </kw>
 <kw name="Fechar browser" owner="setup_teardown" type="TEARDOWN">
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2024-07-22T13:31:13.195817" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-07-22T15:05:44.159232" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2024-07-22T13:31:13.074851" elapsed="0.120966"/>
+<status status="PASS" start="2024-07-22T15:05:44.069255" elapsed="0.089977"/>
 </kw>
-<status status="PASS" start="2024-07-22T13:31:13.074851" elapsed="0.120966"/>
+<status status="PASS" start="2024-07-22T15:05:44.069255" elapsed="0.089977"/>
 </kw>
-<status status="PASS" start="2024-07-22T13:31:10.920127" elapsed="2.275690"/>
+<status status="FAIL" start="2024-07-22T15:05:41.912432" elapsed="2.246800">Element with locator '//div[@class='erro'][contains(.,'caracter inválido')]' not found.</status>
 </test>
-<status status="PASS" start="2024-07-22T13:31:10.293153" elapsed="2.902664"/>
+<status status="FAIL" start="2024-07-22T15:05:41.183657" elapsed="2.975575"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Faill Login">Faill Login</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Faill Register">Faill Register</stat>
 </suite>
 </statistics>
 <errors>
