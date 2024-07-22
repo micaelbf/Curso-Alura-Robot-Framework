@@ -23,5 +23,14 @@ Quando clicar em entrar sem digitar as credenciais de login
 Então deve receber as menssagens de erro "Insira seu email" e "Insira sua Senha"
     Element Should Be Visible      //div[@class='erro'][contains(.,'Insira seu email')]
     Element Should Be Visible      //div[@class='erro'][contains(.,'Insira sua senha')]
+
+Quando digitar o e-mail inválido sem "@"                                                                                                                                                                                                                                            
+    Input Text    ${EMAIL}        ana.email.com
+E a senha com menos de seis caracteres
+    Input Text    ${PASSWORD}     Senha
+
+Então ele deve receber a menssagens de erro "Email inválido" e "Mínimo de 6 caracteres"
+    Element Should Be Visible    //div[@class='erro'][contains(.,'email inválido')]
+    Element Should Be Visible    //div[@class='erro'][contains(.,'Mínimo de 6 caracteres')]
     
 

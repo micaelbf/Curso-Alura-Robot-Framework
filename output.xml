@@ -1,61 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-07-18T21:58:26.558830" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-07-22T13:31:10.293153" rpa="false" schemaversion="5">
 <suite id="s1" name="Faill Login" source="c:\Users\Micael\OneDrive\Área de Trabalho\Carreia Teste\Curso-Alura-Robot Framework\Site Adopet\testes\faill_login.robot">
-<test id="s1-t1" name="CT001.001-Verificar menssagens de erro quando o usuário não digitar &quot;email&quot; e &quot;senha&quot; na tela de &quot;login&quot;" line="10">
+<test id="s1-t1" name="CT001.002-Verificar menssagens de erro quando o usuário digitar um email inválido sem &quot;&quot;@&quot;&quot; e a senha com menos de seis caracteres" line="15">
 <kw name="Acessar a URL" owner="setup_teardown" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-07-18T21:58:27.487084" level="INFO">Opening browser 'Chrome' to base url 'https://adopet-challenge.vercel.app/'.</msg>
+<msg time="2024-07-22T13:31:10.920127" level="INFO">Opening browser 'Chrome' to base url 'https://adopet-challenge.vercel.app/'.</msg>
 <arg>url=https://adopet-challenge.vercel.app/</arg>
 <arg>browser=Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-07-18T21:58:27.487084" elapsed="1.861576"/>
+<status status="PASS" start="2024-07-22T13:31:10.920127" elapsed="1.732250"/>
 </kw>
-<status status="PASS" start="2024-07-18T21:58:27.487084" elapsed="1.861576"/>
+<status status="PASS" start="2024-07-22T13:31:10.920127" elapsed="1.732250"/>
 </kw>
 <kw name="Dado que o usuário clique em &quot;Já tenho conta&quot;" owner="login">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-07-18T21:58:29.352701" level="INFO">Clicking element '//a[@href="/login"]'.</msg>
+<msg time="2024-07-22T13:31:12.652377" level="INFO">Clicking element '//a[@href="/login"]'.</msg>
 <arg>${CLICAR_LOGIN}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-18T21:58:29.352701" elapsed="0.130102"/>
+<status status="PASS" start="2024-07-22T13:31:12.652377" elapsed="0.087879"/>
 </kw>
-<status status="PASS" start="2024-07-18T21:58:29.348660" elapsed="0.134143"/>
+<status status="PASS" start="2024-07-22T13:31:12.652377" elapsed="0.088620"/>
 </kw>
-<kw name="Quando clicar em entrar sem digitar as credenciais de login" owner="login">
+<kw name="Quando digitar o e-mail inválido sem &quot;@&quot;" owner="login">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T13:31:12.743147" level="INFO">Typing text 'ana.email.com' into text field 'id:email'.</msg>
+<arg>${EMAIL}</arg>
+<arg>ana.email.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T13:31:12.742010" elapsed="0.138337"/>
+</kw>
+<status status="PASS" start="2024-07-22T13:31:12.742010" elapsed="0.139271"/>
+</kw>
+<kw name="E a senha com menos de seis caracteres" owner="login">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-22T13:31:12.882817" level="INFO">Typing text 'Senha' into text field 'id:password'.</msg>
+<arg>${PASSWORD}</arg>
+<arg>Senha</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-22T13:31:12.882817" elapsed="0.097277"/>
+</kw>
+<status status="PASS" start="2024-07-22T13:31:12.881281" elapsed="0.098813"/>
+</kw>
+<kw name="E clicar em &quot;Entrar&quot;" owner="login">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-07-18T21:58:29.486365" level="INFO">Clicking element 'class:submit-button'.</msg>
+<msg time="2024-07-22T13:31:12.982113" level="INFO">Clicking element 'class:submit-button'.</msg>
 <arg>${CLICAR_BOTAO}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-07-18T21:58:29.485368" elapsed="0.082543"/>
+<status status="PASS" start="2024-07-22T13:31:12.982113" elapsed="0.039699"/>
 </kw>
-<status status="PASS" start="2024-07-18T21:58:29.483317" elapsed="0.084594"/>
+<status status="PASS" start="2024-07-22T13:31:12.981110" elapsed="0.040702"/>
 </kw>
-<kw name="Então deve receber as menssagens de erro &quot;Insira seu email&quot; e &quot;Insira sua Senha&quot;" owner="login">
+<kw name="Então ele deve receber a menssagens de erro &quot;Email inválido&quot; e &quot;Mínimo de 6 caracteres&quot;" owner="login">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-07-18T21:58:29.657874" level="INFO">Element '//div[@class='erro'][contains(.,'Insira seu email')]' is displayed.</msg>
-<arg>//div[@class='erro'][contains(.,'Insira seu email')]</arg>
+<msg time="2024-07-22T13:31:13.053098" level="INFO">Element '//div[@class='erro'][contains(.,'email inválido')]' is displayed.</msg>
+<arg>//div[@class='erro'][contains(.,'email inválido')]</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-07-18T21:58:29.567911" elapsed="0.089963"/>
+<status status="PASS" start="2024-07-22T13:31:13.021812" elapsed="0.031286"/>
 </kw>
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-07-18T21:58:29.689165" level="INFO">Element '//div[@class='erro'][contains(.,'Insira sua senha')]' is displayed.</msg>
-<arg>//div[@class='erro'][contains(.,'Insira sua senha')]</arg>
+<msg time="2024-07-22T13:31:13.074851" level="INFO">Element '//div[@class='erro'][contains(.,'Mínimo de 6 caracteres')]' is displayed.</msg>
+<arg>//div[@class='erro'][contains(.,'Mínimo de 6 caracteres')]</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-07-18T21:58:29.657874" elapsed="0.032289"/>
+<status status="PASS" start="2024-07-22T13:31:13.053098" elapsed="0.021753"/>
 </kw>
-<status status="PASS" start="2024-07-18T21:58:29.567911" elapsed="0.122252"/>
+<status status="PASS" start="2024-07-22T13:31:13.021812" elapsed="0.053039"/>
 </kw>
 <kw name="Fechar browser" owner="setup_teardown" type="TEARDOWN">
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2024-07-18T21:58:29.908071" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-07-22T13:31:13.195817" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2024-07-18T21:58:29.691162" elapsed="0.216909"/>
+<status status="PASS" start="2024-07-22T13:31:13.074851" elapsed="0.120966"/>
 </kw>
-<status status="PASS" start="2024-07-18T21:58:29.691162" elapsed="0.216909"/>
+<status status="PASS" start="2024-07-22T13:31:13.074851" elapsed="0.120966"/>
 </kw>
-<status status="PASS" start="2024-07-18T21:58:27.486624" elapsed="2.422450"/>
+<status status="PASS" start="2024-07-22T13:31:10.920127" elapsed="2.275690"/>
 </test>
-<status status="PASS" start="2024-07-18T21:58:26.563856" elapsed="3.347212"/>
+<status status="PASS" start="2024-07-22T13:31:10.293153" elapsed="2.902664"/>
 </suite>
 <statistics>
 <total>
